@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ 'Register' if register else 'Login' }} to ZenBot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="auth-box">
+     
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flash-messages">
+              {% for category, message in messages %}
+                <li class="flash {{ category }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <h2>{{ 'Register' if register else 'Login' }} to ZenBot</h2>
+
+        <form method="POST" action="{{ url_for('register') if register else url_for('login') }}">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password (Your ZenBot Password)" required>
+            <button class="btn-primary" type="submit">
+                {{ 'Register' if register else 'Login' }}
+            </button>
+            {% if not register %}
+            <p style="text-align: center; margin-top: 0.5px;">
+                Forgot Password? Don't worry sunshine... <a href="{{ url_for('forgot_password') }}">Click Here </a>
+            </p>
+            {% endif %}
+        </form>
+
+        <!-- Google Sign-In -->
+        <form action="{{ url_for('google.login') }}" method="GET">
+            <button class="btn-google" type="submit">
+                <img src="{{ url_for('static', filename='images/google-icon.png') }}" alt="Google" class="google-icon">
+                Sign in with Google
+            </button>
+        </form>
+
+        <p>
+            {% if register %}
+                Already have an account? <a href="{{ url_for('login') }}">Login</a>
+            {% else %}
+                Don't have an account? <a href="{{ url_for('register') }}">Register</a>
+            {% endif %}
+        </p>
+    </div>
+</body>
+</html>

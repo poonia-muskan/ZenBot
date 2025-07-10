@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form action="{{ url_for('chat') }}" method="POST" class="close-form">
+    <input type="hidden" name="start_new" value="true">
+    <button type="submit" class="global-close-btn" title="Back to Chat">❌</button>
+</form>
+
+<div class="diary-wrapper">
+    <!-- Left Panel: Diary Entry -->
+    <div class="diary-entry">
+        <div class="diary-header">
+            <h2>📝 Dear Diary</h2>
+        </div>
+
+        <form method="POST" class="diary-form">
+            <textarea name="entry" rows="6" placeholder="Type your thoughts here, love... ✨" required></textarea>
+            <button type="submit" class="save-btn">Save Entry 💖</button>
+        </form>
+    </div>
+
+    <!-- Right Panel: Previous Entries -->
+    <div class="diary-entries">
+        <h2 style="margin-bottom: 1rem; color: #f0f0ff;">📚 Previous Entries</h2>
+
+        {% if entries %}
+            <div class="entries-scroll">
+                {% for entry in entries %}
+                    <div class="entry" id="entry-{{ entry.id }}">
+                        <form method="POST" action="{{ url_for('update_entry', entry_id=entry.id) }}"
+                              class="edit-form" style="display: none;">
+                            <textarea name="updated_content" rows="3">{{ entry.content }}</textarea>
+                            <button type="submit">💾 Save</button>
+                        </form>
+
+                        <div class="entry-display">
+                            <p>{{ entry.content }}</p>
+                            <small>🕒 {{ entry.timestamp.strftime('%d %b %Y') }}</small>
+                            <div class="entry-actions">
+                                <button onclick="editEntry({{ entry.id }})" title="Edit Entry">✏️</button>
+                                <form method="POST" action="{{ url_for('delete_entry', entry_id=entry.id) }}" style="display:inline;">
+                                    <button type="submit" title="Delete Entry">🗑️</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p style="color: #888;">No entries yet. Start sharing your thoughts 🫂</p>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    function editEntry(id) {
+        const entryDiv = document.getElementById(`entry-${id}`);
+        const form = entryDiv.querySelector(".edit-form");
+        const display = entryDiv.querySelector(".entry-display");
+
+        form.style.display = "block";
+        display.style.display = "none";
+    }
+</script>
+{% endblock %}

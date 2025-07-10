@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="chat-body">
+        {% for msg in messages %}
+            <div class="chat-bubble user">{{ msg.user_input }}</div>
+            <div class="chat-bubble bot">{{ msg.bot_response }}</div>
+        {% endfor %}
+    </div>
+
+    <form class="chat-input-area" method="POST" action="{{ url_for('chat') }}">
+        {% if current_convo %}
+            <input type="hidden" name="conversation_id" value="{{ current_convo.id }}">
+        {% endif %}
+        <input type="text" name="mood" id="messageInput" placeholder="Type how you're feeling..." required>
+        <button type="submit">Send ➤</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,14 @@
+Flask
+Flask-Login
+Flask-Mail
+Flask-Migrate
+Flask-Dance
+Flask-SQLAlchemy
+python-dotenv
+SQLAlchemy
+gunicorn
+itsdangerous
+textblob
+Werkzeug
+requests
+oauthlib

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <title>ZenBot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="container">
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <h2>Conversations 🧠</h2>
+
+            <form action="{{ url_for('chat') }}" method="POST">
+                <input type="hidden" name="start_new" value="true">
+                <button type="submit" class="new-convo-btn">Start New Convo</button>
+            </form>
+
+            <form action="{{ url_for('delete_all_convos') }}" method="POST">
+                <button type="submit" class="new-convo-btn" style="background: #f87171;">🗑️ Clear All</button>
+            </form>
+
+            <div class="convo-scroll">
+                {% if conversations %}
+                    <ul class="convo-list">
+                        {% for convo in conversations %}
+                            <li>
+                                <a href="{{ url_for('view_conversation', convo_id=convo.id) }}"
+                                   class="{% if current_convo and convo.id == current_convo.id %}active{% endif %}">
+                                    🗨️ Conversation {{ loop.index }}
+                                </a>
+                                <form action="{{ url_for('delete_convo', convo_id=convo.id) }}" method="POST" style="display:inline;">
+                                    <button type="submit" title="Delete this convo"
+                                            style="background:none; border:none; color:#f87171; cursor:pointer;">Delete</button>
+                                </form>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="sidebar-bottom">
+            <a href="{{ url_for('diary') }}" class="diary-btn">📓Diary</a>
+            <button id="moodGraphBtn" class="new-convo-btn">📈 Mood Graph</button>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </div>
+    </div>
+
+    <div class="chat-wrapper">
+        <div class="chat-header">
+            <button class="sidebar-toggle" id="sidebarToggleBtn">&#9776;</button>
+            <h1 style="margin-left: 3rem;">Welcome, Sunshine 🌤️</h1>
+            <div class="profile-area">
+                {% if profile_pic %}
+                    <img src="{{ profile_pic }}" alt="Profile Pic" class="profile-pic" title="{{ name }}">
+                {% else %}
+                    <div class="default-avatar">🙂</div>
+                {% endif %}
+            </div>
+        </div>
+
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
+<div id="moodModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Your Mood Over Time 📈</h2>
+        <canvas id="moodChart" width="400" height="250"></canvas>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
