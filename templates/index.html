@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ZenBot - Your Digital Therapist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #f8fafc;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .home-container {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #7c3aed, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #7c3aed;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            background: #8b5cf6;
+            transform: scale(1.05);
+        }
+
+        .emoji-header {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="home-container">
+        <div class="emoji-header">🌈🧘‍♀️ Welcome to ZenBot 🧠🌿</div>
+        <h1>Your Mind's Soft Space</h1>
+        <p>Feeling overwhelmed, anxious, or just... bleh?   
+        ZenBot is your safe space. Talk, reflect, breathe...</p>
+        <a href="{{ url_for('login') }}" class="cta-btn">Get Started</a>
+    </div>
+</body>
+</html>
