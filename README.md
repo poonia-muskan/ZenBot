@@ -1,4 +1,4 @@
-<img width="1919" height="916" alt="Screenshot 2025-07-20 101539" src="https://github.com/user-attachments/assets/31d2a066-5a91-478b-a871-b3b78b246590" /><img width="1919" height="916" alt="Screenshot 2025-07-20 101539" src="https://github.com/user-attachments/assets/af81f885-6561-4b59-9562-bca8c328c886" />🧘‍♀️ ZenBot – Your AI therapist
+🧘‍♀️ ZenBot – Your AI therapist
 🧠 Overview
 ZenBot is a lightweight, interactive web app designed to help users navigate mental wellness with calmness and clarity. It offers daily affirmations, mood tracking, mindfulness journaling, and soft bot interactions—creating a safe digital space for reflection and healing. ZenBot isn’t a therapist, but it is that one chill friend who always listens, never judges, and gently nudges you towards better vibes 🌿💬
 
@@ -83,8 +83,9 @@ ZenBot was born out of a simple idea: mental wellness should be accessible, gent
 
 ---
 
-📂 Run Locally
+📂 Run Locally  
 
+```bash
 git clone https://github.com/poonia-muskan/ZenBot.git
 cd ZenBot
 pip install -r requirements.txt
