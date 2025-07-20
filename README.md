@@ -59,7 +59,7 @@ ZenBot is a lightweight, interactive web app designed to help users navigate men
  - Logging – For error tracking and monitoring
 
 🚀 Deployment
- - Render –> Deployed your app live using Render hosting
+ - Render – Deployed your app live using Render hosting
 
 ---
 
