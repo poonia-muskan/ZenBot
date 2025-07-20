@@ -1,10 +1,10 @@
-🧘‍♀️ ZenBot – Your AI therapist
-🧠 Overview
+# 🧘‍♀️ ZenBot – Your AI therapist
+### 🧠 Overview
 ZenBot is a lightweight, interactive web app designed to help users navigate mental wellness with calmness and clarity. It offers daily affirmations, mood tracking, mindfulness journaling, and soft bot interactions—creating a safe digital space for reflection and healing. ZenBot isn’t a therapist, but it is that one chill friend who always listens, never judges, and gently nudges you towards better vibes 🌿💬
 
 ---
 
-🎯 Features
+### 🎯 Features
 💬 Chat with ZenBot
  - A mindful chatbot that responds to your mood, feelings, or random rants
  - Provides calming messages, suggestions, and affirmations
@@ -27,7 +27,7 @@ ZenBot is a lightweight, interactive web app designed to help users navigate men
 
 ---
 
-💻 Tech Stack
+### 💻 Tech Stack
 🧠 Backend & Framework
  - Python 3 – Core language
  - Flask – Web framework used to build the entire app
@@ -63,7 +63,7 @@ ZenBot is a lightweight, interactive web app designed to help users navigate men
 
 ---
 
-📸 Screenshots
+### 📸 Screenshots
 <img width="1919" height="916" alt="Screenshot 2025-07-20 101539" src="https://github.com/user-attachments/assets/da11bbc0-5533-4c55-83d0-d02e4ce4a2c9" />
 <img width="1919" height="909" alt="Screenshot 2025-07-20 101554" src="https://github.com/user-attachments/assets/1c00830d-7427-4b5e-9fa7-b1e2e6a14fb2" />
 <img width="1919" height="908" alt="Screenshot 2025-07-20 101649" src="https://github.com/user-attachments/assets/6a884f09-42e8-4347-8807-08002fa6e874" />
@@ -72,18 +72,18 @@ ZenBot is a lightweight, interactive web app designed to help users navigate men
 
 ---
 
-🚀 Live Demo
+### 🚀 Live Demo
 - Link 1 -> 🔗 [ZenBot Web App](https://zenbot-3mjb.onrender.com)
 - Link 2 -> 🔗 [ZenBot Web App](https://zenbot-56x6.onrender.com)
 
 ---
 
-🫶 Inspiration
+### 🫶 Inspiration
 ZenBot was born out of a simple idea: mental wellness should be accessible, gentle, and judgment-free. With increasing stress, burnout, and emotional overload in Gen Z and beyond, ZenBot creates a small digital sanctuary for anyone who just wants to breathe and be.
 
 ---
 
-📂 Run Locally  
+### 📂 Run Locally  
 
 ```bash
 git clone https://github.com/poonia-muskan/ZenBot.git
