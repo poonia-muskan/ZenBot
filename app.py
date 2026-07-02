@@ -39,7 +39,7 @@ def mood_to_score(text):
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG)
-app.secret_key = "zenai_secret_key"
+app.secret_key = os.getenv("SECRET_KEY")
 serializer = URLSafeTimedSerializer(app.secret_key)
 
 # Email Configuration
@@ -101,7 +101,7 @@ def register():
         db.session.commit()
 
         return redirect(url_for("dashboard"))
-    return render_template("layout.html", register=True)
+    return render_template("login.html", register=True)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
